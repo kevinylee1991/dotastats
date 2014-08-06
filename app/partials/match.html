@@ -1,0 +1,68 @@
+<style>
+	.match-details {
+		color: white;
+	}
+
+	.match-details .hero-name {
+		margin-left: 10px;
+	}
+
+	.match-details .text-overflow {
+		overflow: auto;
+		white-space: nowrap;
+	}
+
+	.match-details .hero-portrait {
+		width: 80px;
+	}
+
+	.match-details td {
+	}
+</style>
+<div class='row match-details'>
+	<!-- {{teamData}} -->
+	<div class='col-md-1'></div>
+	<div class='col-md-10'>
+		<div ng-repeat='team in teamData'>
+			<h2>{{team.team}}</h2>
+			<table class='table team-details' style='table-layout: fixed'>
+				<thead>
+					<tr>
+						<th class='hero-portrait'>Hero</th>
+						<th class='col-md-2'>Player</th>
+						<th>Kills</th>
+						<th>Deaths</th>
+						<th>Assists</th>
+						<th></th>
+						<th>GPM</th>
+						<th>XPM</th>
+						<th>LH</th>
+						<th>DN</th>
+						<th class='col-md-2'>Net Worth</th>
+						<th>HD</th>
+						<th>HH</th>
+						<th>TD</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr ng-repeat='player in team.data'>
+						<td class='hero-portrait'><img ng-src="{{player.heroPortrait}}"></img></td>
+						<td><div class='text-overflow'><a ng-href="#/player/{{player.account_id}}">{{player.player.personaname}}</a></div></td>
+						<td>{{player.kills}}</td>
+						<td>{{player.deaths}}</td>
+						<td>{{player.assists}}</td>
+						<td></td>
+						<td>{{player.gold_per_min}}</td>
+						<td>{{player.xp_per_min}}</td>
+						<td>{{player.last_hits}}</td>
+						<td>{{player.denies}}</td>
+						<td>{{player.gold_spent+player.gold}}</td>
+						<td>{{player.hero_damage}}</td>
+						<td>{{player.hero_healing}}</td>
+						<td>{{player.tower_damage}}</td>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+	</div>
+</div>

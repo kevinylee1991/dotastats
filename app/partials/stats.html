@@ -1,0 +1,36 @@
+<style>
+	.matches {
+		color: white;
+	}
+
+	.matches .hero-name {
+		margin-left: 10px;
+	}
+</style>
+
+<div class='row'>
+	<div class='col-md-1'></div>
+	<div class='col-md-10'>
+		<p>Name: {{player.personaname}}</p>
+		<p>Avatar: <img ng-src='{{player.avatarmedium}}'></img></p>
+		<!-- {{matchData}} -->
+		<table class='table table-hover matches'>
+			<tr>
+				<thead>
+					<th>Hero</th>
+					<th>Game Start</th>
+					<th>Result</th>
+					<th>K/D/A</th>
+					<th>Items</th>
+				</thead>
+			</tr>
+			<tr ng-repeat="match in matchData" ng-click="dirMatch(match.matchId)">
+				<td><img ng-src={{match.heroPortrait}}></img><span class='hero-name'>{{match.fixedName}}</span></td>
+				<td>{{match.date}}</td>
+				<td>{{match.result}}</td>
+				<td>{{match.kills}}/{{match.deaths}}/{{match.assists}}</td>
+				<td>Items</td>
+			</tr>
+		</table>
+	</div>
+</div>
